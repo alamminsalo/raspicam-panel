@@ -1,4 +1,4 @@
 # raspicam-panel
 Management panel for hunting camera
 
-[To wiki](home)
+[To wiki](https://github.com/dalibomba/raspicam-panel/wiki)
