@@ -3,4 +3,4 @@ cameramode=video
 #Video capture lenght, milliseconds
 videolength=5000
 #Email to send messages to
-email=antti.lamminsalo@gmail.com
+email=
