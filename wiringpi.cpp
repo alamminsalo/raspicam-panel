@@ -51,6 +51,8 @@ int main(){
 	std::string stillparam = "./takepic.sh "+email;
 
 	wiringPiSetupGpio();
+	
+	//Our PIR-sensor is at pin 17
 	int pin = 17;
 	pinMode(pin,INPUT);
 
