@@ -1,19 +1,6 @@
 <html>
 <head>
-
-<style>
-
-.bg{background-color:#e1e1e1}
-.top-bar {height:60px; background-color:#3399ff}
-.tab-button {font-size:2em; padding:5px; margin:5px; border-radius:6px; cursor:pointer; cursor:hand}
-.tab-button:hover {background-color:rgba(0,0,0,0.3)}
-.left {float:left}
-.right {float:right}
-
-.section-title {margin-top:16px}
-
-</style>
-
+<link rel="stylesheet" type="text/css" href="theme.css"/>
 </head>
 <body class="bg">
 <div class="top-bar">
