@@ -84,3 +84,15 @@
 .submit-button {
 	margin-top: 10px;
 }
+
+.error {
+	padding:3px;
+	height:20px;
+	background-color:#fff200;
+}
+
+.success {
+	padding:3px;
+	height:20px;
+	background-color:#71ff00;
+}

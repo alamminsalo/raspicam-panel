@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+session_start();
 
 $login = '';
 $password = '';
@@ -9,9 +9,9 @@ $config = fopen("../config.txt", "r") or die("Unable to open config file!");
 while (!feof($config)){
 	$params = explode("=",fgets($config));
 	if ($params[0] === "login"){
-		$login = trim($params[1]);
+		$login = trim($params[1]); 	
 	}
-	else if ($params[0] === "password"){
+	if ($params[0] === "password"){
 		$password = trim($params[1]);
 	}
 }
