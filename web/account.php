@@ -1,28 +1,55 @@
+<?php require 'auth.php';?>
+<?php
+$email = '';
+
+$config = fopen("../config.txt", "r") or die("Unable to open config file!");
+while (!feof($config)){
+	$params = explode("=",fgets($config));
+	if ($params[0] === "email"){
+		$email = trim($params[1]);
+		break;
+	}
+}
+fclose($config);
+
+$errmsg = '';
+if (isset($_POST['pass'])){
+	if (isset($_POST['passrepeat'])) {
+		if ($_POST['pass'] === $_POST['passrepeat']){
+		
+		}
+		else {
+			$errmsg = '<span class="error">Passwords don't match.</span>';
+		}
+	}
+	else{
+		$errmsg = '<span class="error">You need to submit password on both fields.</span>';
+	}
+}
+?>
+
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="theme.css"/>
 </head>
 <body class="bg">
-<div class="top-bar">
 
-<span class="tab-button left">Account</span>
-<span class="tab-button left">System</span>
-<span class="tab-button right">Logout</span>
+<?php require 'bar.php'?>
 
-</div>
+<div class="content fg">
 
-<div class="settings">
-<table>
-
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+<table class="center">
 <tr><td><h3 class="section-title">Account</h3></td></tr>
-<tr><td>New password</td><td><input type="text"/></td></tr>
-<tr><td>Repeat password</td><td><input type="text"/></td></tr>
+<tr><td>New password</td><td><input type="password" name="pass"/></td></tr>
+<tr><td>Repeat password</td><td><input type="password" name="passrepeat"/></td></tr>
 
 <tr><td><h3 class="section-title">Email</h3></td></tr>
-<tr><td>template_email@somewhere.at</td><td><input type="button" value="Change"/></td><tr>
-<tr><td/><td/><input class="right" type="button" value="Apply"/>
-<td></td><tr>
+<tr><td><input class="inputfield" type="text" value="<?php echo $email;?>"/></td><tr>
+<tr><td/><td/><input class="right submit-button" type="submit" name="action" value="Apply"/><td></td><tr>
 </table>
+</form>
+
 </div>
 
 <div>
