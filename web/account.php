@@ -13,17 +13,26 @@ while (!feof($config)){
 fclose($config);
 
 $errmsg = '';
+
 if (isset($_POST['pass'])){
-	if (isset($_POST['passrepeat'])) {
-		if ($_POST['pass'] === $_POST['passrepeat']){
-		
-		}
-		else {
-			$errmsg = '<span class="error">Passwords don't match.</span>';
-		}
+	$pass = ($_POST['pass']);
+
+	if (strlen($pass) < 6){
+		$errmsg = '<span class="error">Minimum password length is 6 characters.</span>';
 	}
-	else{
-		$errmsg = '<span class="error">You need to submit password on both fields.</span>';
+	else {
+//		if (isset($_POST['passrepeat'])) {
+//			$passrepeat = ($_POST['passrepeat']);
+//
+//			if ($pass === $passrepeat){
+//			}
+//			else {
+//				$errmsg = '<span class="error">Passwords don't match.</span>';
+//			}
+//		}
+//		else{
+//			$errmsg = '<span class="error">You need to submit password on both fields.</span>';
+//		}
 	}
 }
 ?>
@@ -35,6 +44,11 @@ if (isset($_POST['pass'])){
 <body class="bg">
 
 <?php require 'bar.php'?>
+
+<?php echo '</br>';?>
+<?php echo $_POST['pass'];?>
+<?php echo '</br>';?>
+<?php echo $_POST['passrepeat'];?>
 
 <div class="content fg">
 
