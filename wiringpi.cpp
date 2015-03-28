@@ -6,8 +6,9 @@
 #include <fstream>
 
 bool video = false;
-unsigned int videolen = 5;
-std::string email;
+unsigned int videolen = 5000;
+unsigned int timer = 60;
+std::string email, videoparam, stillparam;
 
 bool load_config(const char *path){
 	std::ifstream file(path);
@@ -21,9 +22,10 @@ bool load_config(const char *path){
 			std::string val = line.substr(line.find('=')+1);
 			if (var == "cameramode"){
 				if (val == "video"){
-					video= true;
+					video = true;
 					std::cout << "Set video mode ON\n";
 				}	
+				else video = false;
 			}
 			else if (var == "videolength"){
 				videolen = atoi(val.c_str());
@@ -32,23 +34,26 @@ bool load_config(const char *path){
 			else if (var == "email"){
 				email = val;
 			}
+			else if (var == "timer"){
+				timer = atoi (val.c_str());
+			}
 		}
 		
 	}
 	file.close();
+
+	videoparam = "./takevid.sh ";
+	videoparam += email;
+	videoparam += " ";
+	videoparam += std::to_string(videolen);
+
+	stillparam = "./takepic.sh "+email;
+
 	std::cout << "Read config file.\n";
 	return true;
 };
 
 int main(){
-	load_config("./config.txt");
-
-	std::string videoparam = "./takevid.sh ";
-	videoparam += email;
-	videoparam += " ";
-	videoparam += std::to_string(videolen);
-
-	std::string stillparam = "./takepic.sh "+email;
 
 	wiringPiSetupGpio();
 	
@@ -58,14 +63,14 @@ int main(){
 
 	while(1){
 		if (digitalRead(pin)){
-			printf("Pin %d is HIGH\n",pin);
+			//Load config for possible admin panel changes
+			load_config("./config.txt");
 
 			if (!video) system(stillparam.c_str());
 			else system(videoparam.c_str());
 
-			sleep(80);
+			sleep(timer);
 		}
-		else printf("\n");
 		sleep(1);
 	}	
 

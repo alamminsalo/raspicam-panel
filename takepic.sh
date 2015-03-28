@@ -1,5 +1,5 @@
 #!/bin/bash
-rm image.jpg message.out sent
+rm /home/pi/sent
 
 raspistill -o image.jpg -vf -hf -n
 

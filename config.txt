@@ -1,10 +1,12 @@
 #Camera mode
 cameramode=video
 #Video capture lenght, milliseconds
-videolength=5000
+videolength=1000
 #Email to send messages to
-email=antti.lamminsalo@firstbeat.fi
+email=antti.lamminsalo@gmail.com
 #Panel login name
 login=admin
 #Panel login passwd
-password=uusisalasana
+password=password
+#Sleep timer, seconds
+timer=60

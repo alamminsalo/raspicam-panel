@@ -1,5 +1,5 @@
 #!/bin/bash
-rm output.h264 message.out sent
+rm /home/pi/sent
 
 raspivid -t $2 -o output.h264 
 

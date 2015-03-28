@@ -5,6 +5,7 @@ $_login = '';
 $_password = '';
 $_cameramode = '';
 $_videolength = '';
+$_timer = '';
 
 function writeConfig(){
 	$configstr = ''
@@ -26,7 +27,11 @@ function writeConfig(){
 		."\n"
 		.'#Panel login passwd'
 		."\n"
-		.'password=' . $GLOBALS["_password"];
+		.'password=' . $GLOBALS["_password"]
+		."\n"
+		.'#Sleep timer, seconds'
+		."\n"
+		.'timer=' . $GLOBALS["_timer"];
 
 
 	$config = fopen("../config.txt", "w") or die("Couldn't open config file!");
@@ -37,8 +42,7 @@ function writeConfig(){
 function readConfig(){
 	$config = fopen("../config.txt", "r") or die("Unable to open config file!");
 	while (!feof($config)){
-		$params = explode("=",fgets($config));
-
+		$params = explode("=",fgets($config)); 
 		if (sizeof($params) == 0) continue;
 
 		if ($params[0] === "email"){
@@ -55,6 +59,9 @@ function readConfig(){
 		}
 		else if ($params[0] === "videolength"){
 			$GLOBALS['_videolength'] = trim($params[1]);
+		}
+		else if ($params[0] === "timer"){
+			$GLOBALS['_timer'] = trim($params[1]);
 		}
 	}
 	fclose($config);
