@@ -22,7 +22,7 @@
 <tr><td><p>Memory usage %</p></td><td><p>%value</p></td></tr>
 <tr><td><p>Storage usage %</p></td><td><p>%value</p></td></tr>
 
-<tr><td><h3 class="section-title">Live feed</h3></td><td><a href='index.php'>Watch</a></td></tr>
+<tr><td><h3 class="section-title">Live feed</h3></td><td><a href='watch.php'>Watch</a></td></tr>
 
 </table>
 </div>
