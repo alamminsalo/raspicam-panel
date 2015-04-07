@@ -26,7 +26,13 @@
 .center {
 	margin-left:auto;
 	margin-right:auto;
-	width:60%;
+	width:70%;
+}
+
+.centerb {
+	margin-left:auto;
+	margin-right:auto;
+	width:90%;
 }
 
 .center-horizontal {

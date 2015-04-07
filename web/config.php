@@ -1,12 +1,5 @@
 <?php
 
-$_email = '';
-$_login = '';
-$_password = '';
-$_cameramode = '';
-$_videolength = '';
-$_timer = '';
-
 function writeConfig(){
 	$configstr = ''
 		.'#Camera mode'
@@ -27,12 +20,15 @@ function writeConfig(){
 		."\n"
 		.'#Panel login passwd'
 		."\n"
-		.'password=' . $GLOBALS["_password"]
+		.'password=' . hash("sha256",$GLOBALS["_password"])
 		."\n"
 		.'#Sleep timer, seconds'
 		."\n"
-		.'timer=' . $GLOBALS["_timer"];
-
+		.'timer=' . $GLOBALS["_timer"]
+		."\n"
+		.'#Path to live stream launch script'
+		."\n"
+		.'streamscript=' . $GLOBALS["_script"];
 
 	$config = fopen("../config.txt", "w") or die("Couldn't open config file!");
 	fwrite($config, $configstr);
@@ -62,6 +58,9 @@ function readConfig(){
 		}
 		else if ($params[0] === "timer"){
 			$GLOBALS['_timer'] = trim($params[1]);
+		}
+		else if ($params[0] === "streamscript"){
+			$GLOBALS['_script'] = trim($params[1]);
 		}
 	}
 	fclose($config);

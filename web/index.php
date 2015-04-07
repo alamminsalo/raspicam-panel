@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="theme.css"/>
 </head>
-<body class="bg">
+<body class="bg centerb">
 
 <?php require 'bar.php';?>
 
@@ -25,8 +25,7 @@
 <tr><td><h3 class="section-title">Live feed</h3></td><td><a href='watch.php'>Watch</a></td></tr>
 
 </table>
-</div>
-
+</div> 
 <div>
 	
 </div>

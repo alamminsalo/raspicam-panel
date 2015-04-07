@@ -10,6 +10,7 @@ function getClassName($page){
 <div class="top-bar">
 <a href="index.php"><span class="<?php echo getClassName('index.php');?> left">Summary</span></a>
 <a href="settings.php"><span class="<?php echo getClassName('settings.php');?> left">Settings</span></a>
+<a href="watch.php"><span class="<?php echo getClassName('watch.php');?> left">Live</span></a>
 <a href="login.php?signout=true"><span class="tab-button right">Logout</span></a>
 </div>
 

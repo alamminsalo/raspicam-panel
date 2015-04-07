@@ -70,7 +70,7 @@ if (isset($_POST['action'])){
 <head>
 <link rel="stylesheet" type="text/css" href="theme.css"/>
 </head>
-<body class="bg">
+<body class="bg centerb">
 
 <?php require 'bar.php'?>
 
