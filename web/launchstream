@@ -1,5 +1,3 @@
 #!/bin/bash
 
-echo aaaaaaaaa
-
-/opt/vc/bin/raspivid -t 0 -fps 20 -w 640 -h 360 -o - | /usr/local/bin/ffmpeg -re -i - -vcodec copy -f flv rtmp://127.0.0.1:1935/live/$1 > /dev/null 2>&1 &
+/opt/vc/bin/raspivid -t 0 -hf -vf -ex night -w 640 -h 360 -o - | /usr/local/bin/ffmpeg -re -i - -vcodec copy -f flv rtmp://127.0.0.1:1935/live/$1 > /dev/null 2>&1 &
