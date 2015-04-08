@@ -1,18 +1,18 @@
 <?php 
 require 'auth.php';
-require 'config.php';
-
-readConfig();
 
 //Salt here is literally 'salt'
 //Here we create token, which is passed to a script that launches ffmpeg stream
-//and to the player that plays the stream, so none can (hopefully) use external tools to watch the stream unauthorized.
-//
+//and to the player that plays the stream, 
+//so none can (hopefully) use external tools to watch the stream unauthorized.
 
 $token = hash("sha256", "salt" . time());
-//$execscript = $GLOBALS['_script'] . ' ' . $token;
-$execscript = 'launchstream ' . $token;
-shell_exec($execscript);
+
+//Kill earlier processes, if there are any
+system('./killstream');
+
+//Launch the raspivid + ffmpeg streaming
+exec('./launchstream ' . $token);
 
 ?>
 <html>
@@ -27,9 +27,10 @@ shell_exec($execscript);
 <div id="jwplayer">Loading the player...</div>
 <script type="text/javascript">
 	var ip = location.host;
-	var filepath = "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv";
+	//var filepath = "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv";
     jwplayer("jwplayer").setup({
-	file: filepath,
+	file: "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv",
+	autostart: true,
         width: 640,
         height: 360,
 	primary: 'flash'

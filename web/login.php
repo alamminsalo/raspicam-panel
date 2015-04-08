@@ -19,6 +19,11 @@ Salasana:<br><input class='inputfield' type="password" name="password"><br>
 <input class='right submit-button' type='submit' name='action' value='Kirjaudu'>
 </br>
 </form>
+<form method="post" action="reset.php">
+<input type="hidden" name="reset" value="true"> 
+Unohditko salasanasi?<input type="submit" value="Reset">
+
+</form>
 </div>
 </body>
 </html>

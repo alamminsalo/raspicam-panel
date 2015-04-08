@@ -24,11 +24,7 @@ function writeConfig(){
 		."\n"
 		.'#Sleep timer, seconds'
 		."\n"
-		.'timer=' . $GLOBALS["_timer"]
-		."\n"
-		.'#Path to live stream launch script'
-		."\n"
-		.'streamscript=' . $GLOBALS["_script"];
+		.'timer=' . $GLOBALS["_timer"];
 
 	$config = fopen("../config.txt", "w") or die("Couldn't open config file!");
 	fwrite($config, $configstr);
@@ -58,9 +54,6 @@ function readConfig(){
 		}
 		else if ($params[0] === "timer"){
 			$GLOBALS['_timer'] = trim($params[1]);
-		}
-		else if ($params[0] === "streamscript"){
-			$GLOBALS['_script'] = trim($params[1]);
 		}
 	}
 	fclose($config);
