@@ -1,5 +1,8 @@
 <?php
 	require 'auth.php';
+	if (!isset($_SESSION['ip']))
+		$_SESSION['ip'] = shell_exec('curl -s http://ipecho.net/plain');
+	$uptime = shell_exec('./getuptime');
 ?>
 <html>
 <head>
@@ -11,9 +14,9 @@
 
 <div class="content fg">
 <table class='center'>
-<tr><td><h3 class="section-title">Info</h3></td></tr>
-<tr><td><p>Location</p></td><td><p>%value</p></td></tr>
-<tr><td><p>Time running</p></td><td><p>%value</p></td></tr>
+<tr><td><h3 class="section-title">Device Info</h3></td></tr>
+<tr><td><p>IP Address</p></td><td><p><?php echo $_SESSION['ip'];?></p></td></tr>
+<tr><td><p>Time running</p></td><td><p><?php echo $uptime;?></p></td></tr>
 <tr><td><p>Alerts sent</p></td><td><p>%value</p></td></tr>
 <tr><td><p>Last alert on</p></td><td><p>%value</p></td></tr>
 

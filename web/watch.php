@@ -9,10 +9,19 @@ require 'auth.php';
 $token = hash("sha256", "salt" . time());
 
 //Kill earlier processes, if there are any
-system('./killstream');
+//system('./killstream');
 
-//Launch the raspivid + ffmpeg streaming
-exec('./launchstream ' . $token);
+$online = false;
+
+if (isset($_POST['stream'])){
+	if ($_POST['stream'] == '1'){
+		//Launch the raspivid + ffmpeg streaming
+		shell_exec('./launchstream ' . $token);
+		$online = true;
+	}
+	else shell_exec('./killstream');
+}
+
 
 ?>
 <html>
@@ -30,12 +39,18 @@ exec('./launchstream ' . $token);
 	//var filepath = "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv";
     jwplayer("jwplayer").setup({
 	file: "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv",
-	autostart: true,
+	<?php if ($online) echo 'autostart: true,';?>
         width: 640,
         height: 360,
 	primary: 'flash'
     });
 </script>
+</div>
+<div class="center">
+<form action="watch.php" method="post" style="padding-top:10px">
+	<input type="radio" name="stream" value="1" <?php if ($online) echo "checked";?> onclick="submit()">Online
+	<input type="radio" name="stream" value="0" <?php if (!$online) echo "checked";?> onclick="submit()">Offline
+</form>
 </div>
 </div>
 </body>
