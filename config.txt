@@ -3,7 +3,7 @@ cameramode=image
 #Video capture lenght, milliseconds
 videolength=1000
 #Email to send messages to
-email=antti.lamminsalo@gmail.com
+email=g7719@student.jamk.fi
 #Panel login name
 login=admin
 #Panel login passwd
