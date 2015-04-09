@@ -1,7 +1,7 @@
 #!/bin/bash
 rm /home/pi/sent
 
-raspistill -o image.jpg -vf -hf -n
+raspistill -o image.jpg -vf -hf -n -t 1200
 
 EMAIL=$1
 

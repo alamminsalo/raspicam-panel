@@ -1,5 +1,5 @@
 #Camera mode
-cameramode=video
+cameramode=image
 #Video capture lenght, milliseconds
 videolength=1000
 #Email to send messages to
@@ -7,6 +7,6 @@ email=antti.lamminsalo@gmail.com
 #Panel login name
 login=admin
 #Panel login passwd
-password=password
+password=5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
 #Sleep timer, seconds
-timer=60
+timer=45
