@@ -9,7 +9,7 @@ require 'auth.php';
 $token = hash("sha256", "salt" . time());
 
 //Kill earlier processes, if there are any
-//system('./killstream');
+shell_exec('./killstream');
 
 $online = false;
 
@@ -19,7 +19,6 @@ if (isset($_POST['stream'])){
 		shell_exec('./launchstream ' . $token);
 		$online = true;
 	}
-	else shell_exec('./killstream');
 }
 
 
