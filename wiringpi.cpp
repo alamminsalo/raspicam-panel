@@ -42,12 +42,12 @@ bool load_config(const char *path){
 	}
 	file.close();
 
-	videoparam = "./takevid.sh ";
+	videoparam = "/usr/local/bin/takevid ";
 	videoparam += email;
 	videoparam += " ";
 	videoparam += std::to_string(videolen);
 
-	stillparam = "./takepic.sh "+email;
+	stillparam = "/usr/local/bin/takepic "+email;
 
 	std::cout << "Read config file.\n";
 	return true;
@@ -64,7 +64,7 @@ int main(){
 	while(1){
 		if (digitalRead(pin)){
 			//Load config for possible admin panel changes
-			load_config("./config.txt");
+			load_config("/etc/raspicam/config.txt");
 
 			if (!video) system(stillparam.c_str());
 			else system(videoparam.c_str());

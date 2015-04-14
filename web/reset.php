@@ -18,10 +18,6 @@ if (isset($_POST['reset']) && $_POST['reset'] == 'true'){
 	writeConfig();
 
 	mail($GLOBALS['_email'], "Your password has been reset", "Your new password is $newpass");
-	//$execstr = "/usr/bin/resetpass {$GLOBALS['_email']} $newpass";
-
-	//system($execstr);		
-	//echo $execstr;
 }
 ?>
 

@@ -20,7 +20,7 @@ if (isset($_POST['action'])){
 					$passrepeat = ($_POST['passrepeat']);
 					
 					if ($pass === $passrepeat){
-						$GLOBALS['_password'] = $pass;
+						$GLOBALS['_password'] = hash("sha256",$pass);
 					}
 					else {
 						$errmsg = '<div class="error">Passwords need to match.</div>';

@@ -20,7 +20,7 @@ function writeConfig(){
 		."\n"
 		.'#Panel login passwd'
 		."\n"
-		.'password=' . hash("sha256",$GLOBALS["_password"])
+		.'password=' . $GLOBALS["_password"]
 		."\n"
 		.'#Sleep timer, seconds'
 		."\n"
