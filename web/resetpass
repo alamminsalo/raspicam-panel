@@ -1,9 +1,0 @@
-#!/bin/bash
-
-EMAIL=$1
-
-echo 'Your new password is '$2 > message.out
-
-mutt -s "Password reseted" $EMAIL < message.out
-
-rm message.out
