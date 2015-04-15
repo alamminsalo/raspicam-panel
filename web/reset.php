@@ -14,7 +14,7 @@ if (isset($_POST['reset']) && $_POST['reset'] == 'true'){
 	$newpass = getRandomString();
 
 	readConfig();
-	$GLOBALS['_password'] = $newpass;
+	$GLOBALS['_password'] = hash("sha256",$newpass);
 	writeConfig();
 
 	mail($GLOBALS['_email'], "Your password has been reset", "Your new password is $newpass");
