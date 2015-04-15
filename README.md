@@ -5,4 +5,4 @@ Management panel for hunting camera
 
 ##Dependencies
 
-nginx php5-fpm mutt raspivid raspistill
+nginx php5-fpm mutt raspivid raspistill ffmpeg
