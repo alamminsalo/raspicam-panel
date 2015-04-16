@@ -35,9 +35,8 @@ if (isset($_POST['stream'])){
 <div id="jwplayer">Loading the player...</div>
 <script type="text/javascript">
 	var ip = location.host;
-	//var filepath = "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv";
     jwplayer("jwplayer").setup({
-	file: "rtmp://<?php echo $_SERVER['HTTP_HOST'];?>:1935/live/<?php echo $token;?>.flv",
+	file: "rtmp://"+ip+":1935/live/<?php echo $token;?>.flv",
 	<?php if ($online) echo 'autostart: true,';?>
         width: 640,
         height: 360,
