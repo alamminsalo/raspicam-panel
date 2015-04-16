@@ -11,6 +11,7 @@ if [ ! -d "/etc/raspicam" ]; then
 	sudo mkdir /etc/raspicam
 fi
 sudo cp config/config.txt /etc/raspicam/
+sudo chmod 666 /etc/raspicam/config.txt
 sudo cp config/raspicam /etc/init.d/
 if [ ! -d "/etc/nginx" ]; then
 	sudo mkdir /etc/nginx
