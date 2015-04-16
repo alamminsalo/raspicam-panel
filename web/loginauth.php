@@ -4,7 +4,7 @@ session_start();
 $login = '';
 $password = '';
 
-$config = fopen("../config.txt", "r") or die("Unable to open config file!");
+$config = fopen("/etc/raspicam/config.txt", "r") or die("Unable to open config file!");
 while (!feof($config)){
 	$params = explode("=",fgets($config));
 	if ($params[0] === "login"){

@@ -1,0 +1,12 @@
+#Camera mode
+cameramode=image
+#Video capture lenght, milliseconds
+videolength=1000
+#Email to send messages to
+email=g7719@student.jamk.fi
+#Panel login name
+login=admin
+#Panel login passwd
+password=5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
+#Sleep timer, seconds
+timer=60

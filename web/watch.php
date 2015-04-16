@@ -9,14 +9,14 @@ require 'auth.php';
 $token = hash("sha256", "salt" . time());
 
 //Kill earlier processes, if there are any
-shell_exec('../scripts/killstream');
+shell_exec('killstream');
 
 $online = false;
 
 if (isset($_POST['stream'])){
 	if ($_POST['stream'] == '1'){
 		//Launch the raspivid + ffmpeg streaming
-		shell_exec('../scripts/launchstream ' . $token);
+		shell_exec('launchstream ' . $token);
 		$online = true;
 	}
 }

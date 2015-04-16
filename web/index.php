@@ -2,7 +2,7 @@
 	require 'auth.php';
 	if (!isset($_SESSION['ip']))
 		$_SESSION['ip'] = shell_exec('curl -s http://ipecho.net/plain'); //needs curl installed
-	$uptime = shell_exec('../scripts/getuptime');
+	$uptime = shell_exec('getuptime');
 ?>
 <html>
 <head>

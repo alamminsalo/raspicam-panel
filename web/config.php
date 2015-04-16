@@ -26,13 +26,13 @@ function writeConfig(){
 		."\n"
 		.'timer=' . $GLOBALS["_timer"];
 
-	$config = fopen("../config.txt", "w") or die("Couldn't open config file!");
+	$config = fopen("/etc/raspicam/config.txt", "w") or die("Couldn't open config file!");
 	fwrite($config, $configstr);
 	fclose($config);
 }
 
 function readConfig(){
-	$config = fopen("../config.txt", "r") or die("Unable to open config file!");
+	$config = fopen("/etc/raspicam/config.txt", "r") or die("Unable to open config file!");
 	while (!feof($config)){
 		$params = explode("=",fgets($config)); 
 		if (sizeof($params) == 0) continue;
@@ -58,6 +58,5 @@ function readConfig(){
 	}
 	fclose($config);
 }
-
 
 ?>
